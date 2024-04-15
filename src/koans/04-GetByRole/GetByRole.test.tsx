@@ -4,6 +4,10 @@ import { GetByRole } from "./GetByRole.tsx";
 
 describe(GetByRole, () => {
   it("works", () => {
+    render(<GetByRole />);
+
+    const element = screen.getByRole("button");
+
     expect(element).toMatchKoan();
   });
 });

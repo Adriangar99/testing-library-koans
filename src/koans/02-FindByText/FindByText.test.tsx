@@ -4,10 +4,6 @@ import { FindByText } from "./FindByText.tsx";
 
 describe(FindByText, () => {
   it("works", async () => {
-    render(<FindByText />);
-
-    const element = await screen.findByText("Hello World!");
-
     expect(element).toMatchKoan();
   });
 });

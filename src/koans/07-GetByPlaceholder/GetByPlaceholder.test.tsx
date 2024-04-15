@@ -4,6 +4,10 @@ import { GetByPlaceholder } from "./GetByPlaceholder.tsx";
 
 describe(GetByPlaceholder, () => {
   it("works", () => {
+    render(<GetByPlaceholder />);
+
+    const element = screen.getByPlaceholderText("Your email");
+
     expect(element).toMatchKoan();
   });
 });

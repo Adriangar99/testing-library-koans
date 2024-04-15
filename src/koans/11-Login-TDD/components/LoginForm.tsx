@@ -27,6 +27,7 @@ export const LoginForm = ({ onLogin }: LoginFormProps) => {
       <button
         aria-label={showPassword ? "Hidden Password" : "Show Password"}
         onClick={() => setShowPassword(!showPassword)}
+        type="button"
       >
         <img
           src={

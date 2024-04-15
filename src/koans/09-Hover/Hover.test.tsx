@@ -5,6 +5,13 @@ import { Hover } from "./Hover.tsx";
 
 describe(Hover, () => {
   it("works", async () => {
+    const user = userEvent.setup();
+    render(<Hover />);
+
+    const hoverMeButton = screen.getByText("Hover me!");
+
+    await user.hover(hoverMeButton);
+
     expect(screen.getByText("Result")).toMatchKoan();
   });
 });

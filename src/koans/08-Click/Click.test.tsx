@@ -5,6 +5,15 @@ import { Click } from "./Click.tsx";
 
 describe(Click, () => {
   it("works", async () => {
+    const user = userEvent.setup();
+    render(<Click />);
+
+    const clickMeButton = screen.getByRole("button", {
+      name: "Click me!",
+    });
+
+    await user.click(clickMeButton);
+
     expect(screen.getByText("Result")).toMatchKoan();
   });
 });

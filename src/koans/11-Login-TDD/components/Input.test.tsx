@@ -5,7 +5,7 @@ import userEvent from "@testing-library/user-event";
 
 describe(Input, () => {
   it("should be accessible", () => {
-    render(<Input id="input-test" labelText="My input" />);
+    render(<Input id="input-test" labelText="My input" onChange={() => {}} />);
 
     const input = screen.getByLabelText("My input");
 
@@ -13,7 +13,13 @@ describe(Input, () => {
   });
 
   it("should be of text type if the prop type is not expecified", () => {
-    render(<Input id="input-test" labelText="My input of password" />);
+    render(
+      <Input
+        id="input-test"
+        labelText="My input of password"
+        onChange={() => {}}
+      />
+    );
 
     const input = screen.getByLabelText("My input of password");
 
@@ -22,7 +28,12 @@ describe(Input, () => {
 
   it("should be of text type if the prop type is expecified", () => {
     render(
-      <Input id="input-test" labelText="My input of password" type="text" />
+      <Input
+        id="input-test"
+        labelText="My input of password"
+        type="text"
+        onChange={() => {}}
+      />
     );
 
     const input = screen.getByLabelText("My input of password");
@@ -32,7 +43,12 @@ describe(Input, () => {
 
   it("should be of password type", () => {
     render(
-      <Input id="input-test" labelText="My input of password" type="password" />
+      <Input
+        id="input-test"
+        labelText="My input of password"
+        type="password"
+        onChange={() => {}}
+      />
     );
 
     const input = screen.getByLabelText("My input of password");
@@ -42,7 +58,7 @@ describe(Input, () => {
 
   it("should have the value typed by the user", async () => {
     const user = userEvent.setup();
-    render(<Input id="input-test" labelText="My input" />);
+    render(<Input id="input-test" labelText="My input" onChange={() => {}} />);
 
     const input = screen.getByLabelText("My input");
     await user.type(input, "Hello World!");
@@ -51,7 +67,7 @@ describe(Input, () => {
   });
 
   it("should not have value if the input is clear", async () => {
-    render(<Input id="input-test" labelText="My input" />);
+    render(<Input id="input-test" labelText="My input" onChange={() => {}} />);
 
     const input = screen.getByLabelText("My input");
 

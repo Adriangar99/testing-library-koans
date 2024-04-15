@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { Input } from "./Input";
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
 describe(Input, () => {
   it("should be accessible", () => {
@@ -37,5 +38,23 @@ describe(Input, () => {
     const input = screen.getByLabelText("My input of password");
 
     expect(input).toHaveAttribute("type", "password");
+  });
+
+  it("should have the value typed by the user", async () => {
+    const user = userEvent.setup();
+    render(<Input id="input-test" labelText="My input" />);
+
+    const input = screen.getByLabelText("My input");
+    await user.type(input, "Hello World!");
+
+    expect(input).toHaveValue("Hello World!");
+  });
+
+  it("should not have value if the input is clear", async () => {
+    render(<Input id="input-test" labelText="My input" />);
+
+    const input = screen.getByLabelText("My input");
+
+    expect(input).toHaveValue("");
   });
 });

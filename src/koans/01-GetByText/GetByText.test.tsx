@@ -4,6 +4,10 @@ import { GetByText } from "./GetByText.tsx";
 
 describe(GetByText, () => {
   it("works", () => {
+    render(<GetByText />);
+
+    const element = screen.getByText("Hello World!");
+
     expect(element).toMatchKoan();
   });
 });

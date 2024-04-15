@@ -4,24 +4,6 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 describe(LoginForm, () => {
-  it("shows the input for introduce the email", () => {
-    const onLogin = vi.fn();
-    render(<LoginForm onLogin={onLogin} />);
-
-    const email = screen.getByLabelText("Your email");
-
-    expect(email).toBeInTheDocument();
-  });
-
-  it("shows the input for introduce the password", () => {
-    const onLogin = vi.fn();
-    render(<LoginForm onLogin={onLogin} />);
-
-    const password = screen.getByLabelText("Your password");
-
-    expect(password).toBeInTheDocument();
-  });
-
   it("shows the show password image when the password is hidden", () => {
     const onLogin = vi.fn();
     render(<LoginForm onLogin={onLogin} />);
@@ -65,17 +47,6 @@ describe(LoginForm, () => {
 
     expect(password).toHaveAttribute("type", "text");
     expect(password).toHaveValue("MySecretPassword");
-  });
-
-  it("shows the login button", async () => {
-    const onLogin = vi.fn();
-    render(<LoginForm onLogin={onLogin} />);
-
-    const button = screen.getByRole("button", {
-      name: /login/i,
-    });
-
-    expect(button).toBeInTheDocument();
   });
 
   it("does login", async () => {

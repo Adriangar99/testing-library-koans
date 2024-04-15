@@ -30,4 +30,12 @@ describe(Login, () => {
 
     expect(email).toBeInTheDocument();
   });
+
+  it("shows the input for introduce the password", () => {
+    render(<Login />);
+
+    const password = screen.getByLabelText("Your password");
+
+    expect(password).toBeInTheDocument();
+  });
 });

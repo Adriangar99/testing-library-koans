@@ -1,0 +1,8 @@
+export const Login = () => {
+  return (
+    <div>
+      <h1>Login with email</h1>
+      <p>Enter your email address to login with your account.</p>
+    </div>
+  );
+};

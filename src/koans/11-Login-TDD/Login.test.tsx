@@ -22,4 +22,12 @@ describe(Login, () => {
 
     expect(description).toBeInTheDocument();
   });
+
+  it("shows the input for introduce the email", () => {
+    render(<Login />);
+
+    const email = screen.getByLabelText("Your email");
+
+    expect(email).toBeInTheDocument();
+  });
 });
